@@ -27,6 +27,7 @@ Première version.
 - Envoyez chaque canal vers son propre périphérique
 - Choisissez le micro utilisé par Sonar
 - L’icône indique le volume principal de Sonar
+- Faites défiler sur l’icône pour changer le volume principal
 - Thème clair et sombre, 13 langues, lancement facultatif avec Windows
 
 ## Keywords

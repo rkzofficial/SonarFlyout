@@ -386,6 +386,15 @@ public sealed partial class FlyoutWindow : Window
                 row.SetVolume(volume);
     }
 
+    public void ShowVolumes(Dictionary<string, ChannelVolume> volumes)
+    {
+        if (!AppWindow.IsVisible)
+            return;
+        foreach (var (channel, row) in _rows)
+            if (!_sendingVolumes.Contains(channel) && volumes.TryGetValue(channel, out var volume))
+                row.SetVolume(volume);
+    }
+
     async void Run(Func<Task> action) => await RunAsync(action);
 
     async Task RunAsync(Func<Task> action)

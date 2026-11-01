@@ -27,6 +27,7 @@ Primera versión.
 - Envía cada canal a su propio dispositivo
 - Elige el micrófono que usa Sonar
 - El icono muestra el volumen maestro de Sonar
+- Desplázate sobre el icono para cambiar el volumen maestro
 - Tema claro y oscuro, 13 idiomas, inicio opcional con Windows
 
 ## Keywords

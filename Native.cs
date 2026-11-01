@@ -14,6 +14,49 @@ static unsafe partial class Native
     public const uint NIF_MESSAGE = 0x1, NIF_ICON = 0x2, NIF_TIP = 0x4, NIF_SHOWTIP = 0x80;
     public const uint NOTIFYICON_VERSION_4 = 4;
 
+    public const uint WM_MOUSEMOVE = 0x0200, WM_INPUT = 0x00FF;
+    public const uint RIDEV_REMOVE = 0x1, RIDEV_INPUTSINK = 0x100;
+    public const uint RID_INPUT = 0x10000003, RIM_TYPEMOUSE = 0;
+    public const ushort RI_MOUSE_WHEEL = 0x0400;
+    public const int WHEEL_DELTA = 120;
+
+    public struct RAWINPUTDEVICE
+    {
+        public ushort usUsagePage;
+        public ushort usUsage;
+        public uint dwFlags;
+        public nint hwndTarget;
+    }
+
+    public struct RAWINPUTHEADER
+    {
+        public uint dwType;
+        public uint dwSize;
+        public nint hDevice;
+        public nint wParam;
+    }
+
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    public struct RAWMOUSE
+    {
+        [FieldOffset(4)] public ushort usButtonFlags;
+        [FieldOffset(6)] public short usButtonData;
+    }
+
+    public struct RAWINPUT
+    {
+        public RAWINPUTHEADER header;
+        public RAWMOUSE mouse;
+    }
+
+    public struct NOTIFYICONIDENTIFIER
+    {
+        public uint cbSize;
+        public nint hWnd;
+        public uint uID;
+        public Guid guidItem;
+    }
+
 
     public const uint IMAGE_ICON = 1, LR_LOADFROMFILE = 0x10;
     public const int SM_CXSMICON = 49;
@@ -70,6 +113,16 @@ static unsafe partial class Native
     [LibraryImport("shell32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool Shell_NotifyIconW(uint message, NOTIFYICONDATAW* data);
+
+    [LibraryImport("shell32.dll")]
+    public static partial int Shell_NotifyIconGetRect(NOTIFYICONIDENTIFIER* identifier, RECT* rect);
+
+    [LibraryImport("user32.dll")]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static partial bool RegisterRawInputDevices(RAWINPUTDEVICE* devices, uint count, uint size);
+
+    [LibraryImport("user32.dll")]
+    public static partial uint GetRawInputData(nint rawInput, uint command, void* data, uint* size, uint headerSize);
 
     [LibraryImport("user32.dll")]
     public static partial ushort RegisterClassExW(WNDCLASSEXW* windowClass);

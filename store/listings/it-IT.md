@@ -27,6 +27,7 @@ Prima versione.
 - Invia ogni canale al proprio dispositivo
 - Scegli il microfono usato da Sonar
 - L’icona mostra il volume master di Sonar
+- Scorri sull’icona per cambiare il volume master
 - Tema chiaro e scuro, 13 lingue, avvio facoltativo con Windows
 
 ## Keywords

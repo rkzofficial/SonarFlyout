@@ -15,15 +15,19 @@ sealed unsafe class TrayIcon : IDisposable
 
     readonly Action _onSelect;
     readonly Action<int, int> _onContextMenu;
+    readonly Action<int> _onWheel;
     readonly nint _hwnd;
     nint _icon;
     string _state = "3";
     string _tooltip = Strings.Get("TrayTooltip");
+    bool _wheelRegistered;
+    int _wheelRemainder;
 
-    public TrayIcon(Action onSelect, Action<int, int> onContextMenu)
+    public TrayIcon(Action onSelect, Action<int, int> onContextMenu, Action<int> onWheel)
     {
         _onSelect = onSelect;
         _onContextMenu = onContextMenu;
+        _onWheel = onWheel;
         s_instance = this;
 
         var instance = GetModuleHandleW(null);
@@ -45,6 +49,8 @@ sealed unsafe class TrayIcon : IDisposable
 
     public void Dispose()
     {
+        if (_wheelRegistered)
+            RegisterWheel(false);
         var data = NewData();
         Shell_NotifyIconW(NIM_DELETE, &data);
         DestroyIcon(_icon);
@@ -92,6 +98,50 @@ sealed unsafe class TrayIcon : IDisposable
         DestroyIcon(old);
     }
 
+    // The shell never forwards wheel messages to notification icons, so listen to raw mouse input,
+    // but only while the pointer is over the icon: raw input reports every mouse movement system-wide.
+    void RegisterWheel(bool register)
+    {
+        var device = new RAWINPUTDEVICE
+        {
+            usUsagePage = 1,
+            usUsage = 2,
+            dwFlags = register ? RIDEV_INPUTSINK : RIDEV_REMOVE,
+            hwndTarget = register ? _hwnd : 0,
+        };
+        RegisterRawInputDevices(&device, 1, (uint)sizeof(RAWINPUTDEVICE));
+        _wheelRegistered = register;
+        _wheelRemainder = 0;
+    }
+
+    bool IsCursorOverIcon()
+    {
+        var id = new NOTIFYICONIDENTIFIER { cbSize = (uint)sizeof(NOTIFYICONIDENTIFIER), hWnd = _hwnd, uID = 1 };
+        RECT rect;
+        return Shell_NotifyIconGetRect(&id, &rect) >= 0 && GetCursorPos(out var cursor)
+            && cursor.X >= rect.Left && cursor.X < rect.Right && cursor.Y >= rect.Top && cursor.Y < rect.Bottom;
+    }
+
+    void OnRawInput(nint handle)
+    {
+        if (!IsCursorOverIcon())
+        {
+            RegisterWheel(false);
+            return;
+        }
+        RAWINPUT input;
+        uint size = (uint)sizeof(RAWINPUT);
+        if (GetRawInputData(handle, RID_INPUT, &input, &size, (uint)sizeof(RAWINPUTHEADER)) == unchecked((uint)-1)
+            || input.header.dwType != RIM_TYPEMOUSE || (input.mouse.usButtonFlags & RI_MOUSE_WHEEL) == 0)
+            return;
+        _wheelRemainder += input.mouse.usButtonData;
+        int notches = _wheelRemainder / WHEEL_DELTA;
+        if (notches == 0)
+            return;
+        _wheelRemainder %= WHEEL_DELTA;
+        _onWheel(notches);
+    }
+
     void LoadIcon()
     {
         var file = $"{(IsTaskbarLight() ? "TrayLight" : "TrayDark")}{_state}.ico";
@@ -120,9 +170,14 @@ sealed unsafe class TrayIcon : IDisposable
                     case WM_CONTEXTMENU:
                         self._onContextMenu((short)(wParam & 0xFFFF), (short)((wParam >> 16) & 0xFFFF));
                         break;
+                    case WM_MOUSEMOVE when !self._wheelRegistered:
+                        self.RegisterWheel(true);
+                        break;
                 }
                 return 0;
             }
+            if (message == WM_INPUT && self._wheelRegistered)
+                self.OnRawInput(lParam);
             if (message == s_taskbarCreated)
             {
                 self.Add();
