@@ -92,7 +92,7 @@ jobs:
           $PSNativeCommandUseErrorActionPreference = $true
           [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false)
           msstore reconfigure --tenantId $env:TENANT_ID --sellerId $env:SELLER_ID --clientId $env:CLIENT_ID --clientSecret $env:CLIENT_SECRET
-          msstore publish $PWD --inputFile $env:PACKAGE --appId $env:PRODUCT_ID --noCommit
+          msstore publish $PWD --inputDirectory (Split-Path $env:PACKAGE) --appId $env:PRODUCT_ID --noCommit
           $json = (msstore submission get $env:PRODUCT_ID) -join "`n"
           [IO.File]::WriteAllText("$PWD\submission.json", $json.Substring($json.IndexOf('{')))
           ./tools/set-store-listings.ps1 submission.json
