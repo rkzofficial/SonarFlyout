@@ -39,7 +39,7 @@ Sonar Flyout 是一个独立项目，与 SteelSeries 无关，也未获得 Steel
 - 托盘
 
 ## Copyright and trademark info
-© 2026 rkzofficial. SteelSeries, SteelSeries GG and SteelSeries Sonar are trademarks of SteelSeries ApS.
+© 2026 Raj Kishore. SteelSeries, SteelSeries GG and SteelSeries Sonar are trademarks of SteelSeries ApS.
 
 ## Additional license terms
 https://github.com/rkzofficial/SonarFlyout/blob/main/LICENSE

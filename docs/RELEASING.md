@@ -27,7 +27,7 @@ Submissions go through Store certification, which usually takes a few hours to t
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/apps-and-games/overview) with a Microsoft Store developer account (free for individuals).
 2. **Apps and games → New product → MSIX or PWA app**, and reserve the name **Sonar Flyout**.
 3. Open **Product management → Product identity** and note:
-   - **Package/Identity/Name**, for example `12345rkzofficial.SonarFlyout`
+   - **Package/Identity/Name**, for example `RajKishore.SonarFlyout`
    - **Package/Identity/Publisher**, for example `CN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`
    - **Package/Properties/PublisherDisplayName**
    - **Store ID**, for example `9NXXXXXXXXXX`
