@@ -48,6 +48,7 @@
 | Action | What it does |
 | --- | --- |
 | Click the tray icon | Open or close the mixer |
+| Scroll over the tray icon | Raise or lower master volume |
 | Click a device under **Output** | Send every channel to that device |
 | Click the link icon next to **Output** | Switch between one shared output and per-channel outputs |
 | Click a channel name (per-channel mode) | Choose that channel's device |

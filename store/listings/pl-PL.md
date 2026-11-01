@@ -27,6 +27,7 @@ Pierwsze wydanie.
 - Osobne urządzenie dla każdego kanału
 - Wybór mikrofonu używanego przez Sonar
 - Ikona pokazuje główną głośność Sonar
+- Przewiń nad ikoną, aby zmienić główną głośność
 - Jasny i ciemny motyw, 13 języków, opcjonalne uruchamianie z Windows
 
 ## Keywords

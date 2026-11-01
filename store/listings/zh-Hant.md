@@ -27,6 +27,7 @@ Sonar Flyout 是獨立專案，與 SteelSeries 無關，也未獲得 SteelSeries
 - 為每個通道指定各自的裝置
 - 選擇 Sonar 使用的麥克風
 - 系統匣圖示顯示 Sonar 主音量
+- 在系統匣圖示上捲動滑鼠滾輪即可調整主音量
 - 淺色與深色主題、13 種語言、可選擇隨 Windows 啟動
 
 ## Keywords

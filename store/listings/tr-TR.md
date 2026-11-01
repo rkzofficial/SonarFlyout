@@ -27,6 +27,7 @@ Sonar Flyout bağımsız bir projedir; SteelSeries ile bağlantılı değildir v
 - Her kanalı kendi aygıtına gönderin
 - Sonar'ın kullandığı mikrofonu seçin
 - Simge, Sonar'ın ana ses düzeyini gösterir
+- Ana ses düzeyini değiştirmek için simgenin üzerinde kaydırın
 - Açık ve koyu tema, 13 dil, isteğe bağlı Windows ile başlatma
 
 ## Keywords

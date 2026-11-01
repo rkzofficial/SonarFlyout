@@ -27,6 +27,7 @@ Sonar Flyout 是一个独立项目，与 SteelSeries 无关，也未获得 Steel
 - 为每个通道单独指定设备
 - 选择 Sonar 使用的麦克风
 - 托盘图标显示 Sonar 主音量
+- 在托盘图标上滚动鼠标滚轮即可调节主音量
 - 浅色和深色主题、13 种语言、可选随 Windows 启动
 
 ## Keywords

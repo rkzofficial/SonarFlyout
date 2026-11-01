@@ -27,6 +27,7 @@ First release.
 - Route each channel to its own device
 - Choose the microphone Sonar uses
 - Tray icon shows Sonar's master volume
+- Scroll over the tray icon to change master volume
 - Light and dark theme, 13 languages, optional start with Windows
 
 ## Keywords

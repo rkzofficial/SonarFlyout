@@ -27,6 +27,7 @@ Erste Version.
 - Jeden Kanal an ein eigenes Gerät leiten
 - Das von Sonar verwendete Mikrofon auswählen
 - Das Tray-Symbol zeigt die Master-Lautstärke von Sonar
+- Mausrad über dem Tray-Symbol ändert die Master-Lautstärke
 - Helles und dunkles Design, 13 Sprachen, optionaler Start mit Windows
 
 ## Keywords
