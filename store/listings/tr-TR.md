@@ -18,7 +18,7 @@ Classic modunda Sonar etkinleştirilmiş SteelSeries GG gerektirir.
 Sonar Flyout bağımsız bir projedir; SteelSeries ile bağlantılı değildir ve SteelSeries tarafından onaylanmamış veya desteklenmemiştir. SteelSeries, SteelSeries GG ve SteelSeries Sonar, SteelSeries ApS'nin ticari markalarıdır.
 
 ## What's new in this version
-İlk sürüm.
+Ana ses düzeyini değiştirmek için simgenin üzerinde kaydırın.
 
 ## Product features
 - Ana, Oyun, Sohbet, Medya, Aux ve Mikrofon seslerini görev çubuğundan ayarlayın

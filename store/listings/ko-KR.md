@@ -18,7 +18,7 @@ Classic 모드에서 Sonar가 활성화된 SteelSeries GG가 필요합니다.
 Sonar Flyout은 독립 프로젝트이며 SteelSeries와 제휴하거나 SteelSeries의 보증 또는 후원을 받지 않습니다. SteelSeries, SteelSeries GG 및 SteelSeries Sonar는 SteelSeries ApS의 상표입니다.
 
 ## What's new in this version
-첫 번째 릴리스입니다.
+트레이 아이콘 위에서 스크롤하여 마스터 볼륨 조절.
 
 ## Product features
 - 작업 표시줄에서 마스터, 게임, 채팅, 미디어, Aux, 마이크 볼륨 조절

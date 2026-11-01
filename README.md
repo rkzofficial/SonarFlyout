@@ -21,7 +21,7 @@ Windows 11 and [SteelSeries GG](https://steelseries.com/gg) with Sonar in Classi
 
 ## Install
 
-Microsoft Store: coming soon. Until then, build it from source (see below).
+Get it from the [Microsoft Store](https://apps.microsoft.com/detail/9NQFB26DHTL9), or build it from source (see below).
 
 ## Usage
 
