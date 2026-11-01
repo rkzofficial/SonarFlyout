@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="AppDisplayName" xml:space="preserve"><value>Sonar Flyout</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>Mélangeur de la zone de notification pour SteelSeries Sonar</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>Mélangeur Sonar</value></data>
+  <data name="TrayTooltip" xml:space="preserve"><value>Mélangeur Sonar</value></data>
+  <data name="TrayVolume" xml:space="preserve"><value>Sonar : {0}</value></data>
+  <data name="TrayMuted" xml:space="preserve"><value>Sonar : muet</value></data>
+  <data name="MenuOpenGG" xml:space="preserve"><value>Ouvrir SteelSeries GG</value></data>
+  <data name="MenuStartWithWindows" xml:space="preserve"><value>Lancer au démarrage de Windows</value></data>
+  <data name="MenuStartWithWindowsOn" xml:space="preserve"><value>Lancer au démarrage de Windows, activé</value></data>
+  <data name="MenuStartWithWindowsOff" xml:space="preserve"><value>Lancer au démarrage de Windows, désactivé</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>Quitter</value></data>
+  <data name="SoundHeader.Text" xml:space="preserve"><value>Son</value></data>
+  <data name="OutputHeader.Text" xml:space="preserve"><value>Sortie</value></data>
+  <data name="PerChannelHint.Text" xml:space="preserve"><value>Par canal</value></data>
+  <data name="SyncOutputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Même sortie pour tous les canaux</value></data>
+  <data name="Outputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Périphérique de sortie</value></data>
+  <data name="MixerHeader.Text" xml:space="preserve"><value>Mélangeur</value></data>
+  <data name="InputHeader.Text" xml:space="preserve"><value>Entrée</value></data>
+  <data name="Inputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Périphérique d’entrée</value></data>
+  <data name="FooterTitle.Text" xml:space="preserve"><value>SteelSeries Sonar</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Ouvrir SteelSeries GG</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Ouvrir SteelSeries GG</value></data>
+  <data name="SyncedTooltip" xml:space="preserve"><value>Sorties synchronisées. Cliquez pour choisir un périphérique par canal.</value></data>
+  <data name="UnsyncedTooltip" xml:space="preserve"><value>Synchroniser tous les canaux sur une seule sortie</value></data>
+  <data name="ChannelMaster" xml:space="preserve"><value>Principal</value></data>
+  <data name="ChannelGame" xml:space="preserve"><value>Jeu</value></data>
+  <data name="ChannelChat" xml:space="preserve"><value>Chat</value></data>
+  <data name="ChannelMedia" xml:space="preserve"><value>Média</value></data>
+  <data name="ChannelAux" xml:space="preserve"><value>Aux</value></data>
+  <data name="ChannelMic" xml:space="preserve"><value>Micro</value></data>
+  <data name="ChannelVolumeName" xml:space="preserve"><value>Volume {0}</value></data>
+  <data name="ChannelMuteName" xml:space="preserve"><value>Couper {0}</value></data>
+  <data name="ChannelOutputName" xml:space="preserve"><value>Sortie {0}</value></data>
+  <data name="Mute" xml:space="preserve"><value>Couper le son</value></data>
+  <data name="Unmute" xml:space="preserve"><value>Rétablir le son</value></data>
+  <data name="UnavailableDevice" xml:space="preserve"><value>Périphérique indisponible</value></data>
+  <data name="ErrorUnreachable" xml:space="preserve"><value>Impossible de joindre Sonar. SteelSeries GG est-il lancé ?</value></data>
+  <data name="ErrorStreamerMode" xml:space="preserve"><value>Le mode Streamer n’est pas encore pris en charge. Passez Sonar en mode Classic.</value></data>
+</root>

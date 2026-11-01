@@ -1,0 +1,103 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to build, e.g. 1.0.0
+        required: true
+      submit:
+        description: Submit the build to the Microsoft Store
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    environment: microsoft-store
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # Native AOT's linker setup calls vswhere, which isn't on PATH by default.
+      - name: Put vswhere on PATH
+        run: Add-Content $env:GITHUB_PATH "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+
+      - name: Resolve version
+        id: version
+        env:
+          TAG: ${{ github.ref_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          $version = if ('${{ github.event_name }}' -eq 'push') { $env:TAG.TrimStart('v') } else { $env:INPUT_VERSION }
+          if ($version -notmatch '^\d+\.\d+\.\d+$') { throw "Version '$version' must look like 1.2.3" }
+          "value=$version" >> $env:GITHUB_OUTPUT
+
+      # The committed manifest carries placeholder identity values; the Store requires the ones Partner Center assigned.
+      - name: Stamp Store identity and version
+        env:
+          PACKAGE_NAME: ${{ vars.STORE_PACKAGE_NAME }}
+          PUBLISHER: ${{ vars.STORE_PUBLISHER }}
+          PUBLISHER_DISPLAY_NAME: ${{ vars.STORE_PUBLISHER_DISPLAY_NAME }}
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          if (-not $env:PACKAGE_NAME -or -not $env:PUBLISHER -or -not $env:PUBLISHER_DISPLAY_NAME) {
+            throw 'Set the STORE_PACKAGE_NAME, STORE_PUBLISHER and STORE_PUBLISHER_DISPLAY_NAME variables (see docs/RELEASING.md).'
+          }
+          $path = (Resolve-Path Package.appxmanifest).Path
+          $manifest = [xml](Get-Content $path -Raw)
+          $manifest.Package.Identity.Name = $env:PACKAGE_NAME
+          $manifest.Package.Identity.Publisher = $env:PUBLISHER
+          $manifest.Package.Identity.Version = "$env:VERSION.0"
+          $manifest.Package.Properties.PublisherDisplayName = $env:PUBLISHER_DISPLAY_NAME
+          $manifest.Save($path)
+
+      - name: Build Store package
+        run: dotnet publish SonarFlyout.csproj -c Release -p:GenerateAppxPackageOnBuild=true -p:UapAppxPackageBuildMode=StoreUpload -p:AppxPackageDir="$PWD\AppPackages\"
+
+      - name: Find package
+        id: package
+        run: |
+          $file = Get-ChildItem AppPackages -Recurse -Filter *.msixupload | Select-Object -First 1
+          if (-not $file) { throw 'The build produced no .msixupload' }
+          "path=$($file.FullName)" >> $env:GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SonarFlyout-${{ steps.version.outputs.value }}-store
+          path: ${{ steps.package.outputs.path }}
+
+      - name: Set up the Microsoft Store CLI
+        if: github.event_name == 'push' || inputs.submit
+        uses: microsoft/microsoft-store-apppublisher@v1.1
+
+      - name: Submit to the Microsoft Store
+        if: github.event_name == 'push' || inputs.submit
+        env:
+          TENANT_ID: ${{ secrets.PARTNER_CENTER_TENANT_ID }}
+          SELLER_ID: ${{ secrets.PARTNER_CENTER_SELLER_ID }}
+          CLIENT_ID: ${{ secrets.PARTNER_CENTER_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.PARTNER_CENTER_CLIENT_SECRET }}
+          PRODUCT_ID: ${{ vars.STORE_PRODUCT_ID }}
+          PACKAGE: ${{ steps.package.outputs.path }}
+        run: |
+          msstore reconfigure --tenantId $env:TENANT_ID --sellerId $env:SELLER_ID --clientId $env:CLIENT_ID --clientSecret $env:CLIENT_SECRET
+          msstore publish $PWD --inputFile $env:PACKAGE --appId $env:PRODUCT_ID
+
+      - name: Create GitHub release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          PRODUCT_ID: ${{ vars.STORE_PRODUCT_ID }}
+        run: |
+          $notes = "Submitted to the Microsoft Store. It appears there once certification finishes, usually within a few days.`n`nhttps://apps.microsoft.com/detail/$env:PRODUCT_ID"
+          gh release create $env:TAG --title "Sonar Flyout $env:TAG" --notes $notes --generate-notes

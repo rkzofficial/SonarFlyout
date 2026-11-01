@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="SonarFlyout.ChannelRow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid MinHeight="40" ColumnSpacing="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="32" />
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="RouteButton" Grid.Column="1" Width="112" Padding="8,4" HorizontalContentAlignment="Left"
+                Style="{StaticResource SubtleButtonStyle}" Visibility="Collapsed">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                    <TextBlock x:Name="Label" />
+                    <FontIcon x:Name="Chevron" FontSize="10" Glyph="&#xE70D;" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                </StackPanel>
+                <TextBlock x:Name="RouteText" Style="{StaticResource CaptionTextBlockStyle}"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                           TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Visibility="Collapsed" />
+            </StackPanel>
+            <Button.Flyout>
+                <MenuFlyout x:Name="RouteMenu" Placement="BottomEdgeAlignedLeft" />
+            </Button.Flyout>
+        </Button>
+
+        <Button x:Name="MuteButton" Width="36" Height="36" Padding="0"
+                Style="{StaticResource SubtleButtonStyle}">
+            <FontIcon x:Name="MuteIcon" FontSize="16" />
+        </Button>
+        <Slider x:Name="VolumeSlider" Grid.Column="2" Margin="6,0" Maximum="100" StepFrequency="1"
+                VerticalAlignment="Center" />
+        <TextBlock x:Name="ValueText" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Margin="0,0,4,0" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+    </Grid>
+</UserControl>

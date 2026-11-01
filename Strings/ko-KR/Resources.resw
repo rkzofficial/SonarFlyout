@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="AppDisplayName" xml:space="preserve"><value>Sonar Flyout</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>SteelSeries Sonar용 트레이 믹서</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>Sonar 믹서</value></data>
+  <data name="TrayTooltip" xml:space="preserve"><value>Sonar 믹서</value></data>
+  <data name="TrayVolume" xml:space="preserve"><value>Sonar: {0}</value></data>
+  <data name="TrayMuted" xml:space="preserve"><value>Sonar: 음소거</value></data>
+  <data name="MenuOpenGG" xml:space="preserve"><value>SteelSeries GG 열기</value></data>
+  <data name="MenuStartWithWindows" xml:space="preserve"><value>Windows 시작 시 실행</value></data>
+  <data name="MenuStartWithWindowsOn" xml:space="preserve"><value>Windows 시작 시 실행, 켜짐</value></data>
+  <data name="MenuStartWithWindowsOff" xml:space="preserve"><value>Windows 시작 시 실행, 꺼짐</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>종료</value></data>
+  <data name="SoundHeader.Text" xml:space="preserve"><value>사운드</value></data>
+  <data name="OutputHeader.Text" xml:space="preserve"><value>출력</value></data>
+  <data name="PerChannelHint.Text" xml:space="preserve"><value>채널별</value></data>
+  <data name="SyncOutputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>모든 채널에 같은 출력 사용</value></data>
+  <data name="Outputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>출력 장치</value></data>
+  <data name="MixerHeader.Text" xml:space="preserve"><value>믹서</value></data>
+  <data name="InputHeader.Text" xml:space="preserve"><value>입력</value></data>
+  <data name="Inputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>입력 장치</value></data>
+  <data name="FooterTitle.Text" xml:space="preserve"><value>SteelSeries Sonar</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>SteelSeries GG 열기</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>SteelSeries GG 열기</value></data>
+  <data name="SyncedTooltip" xml:space="preserve"><value>출력이 동기화되었습니다. 클릭하면 채널별로 장치를 선택할 수 있습니다.</value></data>
+  <data name="UnsyncedTooltip" xml:space="preserve"><value>모든 채널을 하나의 출력으로 동기화</value></data>
+  <data name="ChannelMaster" xml:space="preserve"><value>마스터</value></data>
+  <data name="ChannelGame" xml:space="preserve"><value>게임</value></data>
+  <data name="ChannelChat" xml:space="preserve"><value>채팅</value></data>
+  <data name="ChannelMedia" xml:space="preserve"><value>미디어</value></data>
+  <data name="ChannelAux" xml:space="preserve"><value>Aux</value></data>
+  <data name="ChannelMic" xml:space="preserve"><value>마이크</value></data>
+  <data name="ChannelVolumeName" xml:space="preserve"><value>{0} 볼륨</value></data>
+  <data name="ChannelMuteName" xml:space="preserve"><value>{0} 음소거</value></data>
+  <data name="ChannelOutputName" xml:space="preserve"><value>{0} 출력</value></data>
+  <data name="Mute" xml:space="preserve"><value>음소거</value></data>
+  <data name="Unmute" xml:space="preserve"><value>음소거 해제</value></data>
+  <data name="UnavailableDevice" xml:space="preserve"><value>사용할 수 없는 장치</value></data>
+  <data name="ErrorUnreachable" xml:space="preserve"><value>Sonar에 연결할 수 없습니다. SteelSeries GG가 실행 중인가요?</value></data>
+  <data name="ErrorStreamerMode" xml:space="preserve"><value>Streamer 모드는 아직 지원되지 않습니다. Sonar를 Classic 모드로 전환하세요.</value></data>
+</root>

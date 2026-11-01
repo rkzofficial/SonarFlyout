@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="AppDisplayName" xml:space="preserve"><value>Sonar Flyout</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>SteelSeries Sonar 用のタスク トレイ ミキサー</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>Sonar ミキサー</value></data>
+  <data name="TrayTooltip" xml:space="preserve"><value>Sonar ミキサー</value></data>
+  <data name="TrayVolume" xml:space="preserve"><value>Sonar: {0}</value></data>
+  <data name="TrayMuted" xml:space="preserve"><value>Sonar: ミュート</value></data>
+  <data name="MenuOpenGG" xml:space="preserve"><value>SteelSeries GG を開く</value></data>
+  <data name="MenuStartWithWindows" xml:space="preserve"><value>Windows の起動時に開始</value></data>
+  <data name="MenuStartWithWindowsOn" xml:space="preserve"><value>Windows の起動時に開始、オン</value></data>
+  <data name="MenuStartWithWindowsOff" xml:space="preserve"><value>Windows の起動時に開始、オフ</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>終了</value></data>
+  <data name="SoundHeader.Text" xml:space="preserve"><value>サウンド</value></data>
+  <data name="OutputHeader.Text" xml:space="preserve"><value>出力</value></data>
+  <data name="PerChannelHint.Text" xml:space="preserve"><value>チャンネルごと</value></data>
+  <data name="SyncOutputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>すべてのチャンネルで同じ出力</value></data>
+  <data name="Outputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>出力デバイス</value></data>
+  <data name="MixerHeader.Text" xml:space="preserve"><value>ミキサー</value></data>
+  <data name="InputHeader.Text" xml:space="preserve"><value>入力</value></data>
+  <data name="Inputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>入力デバイス</value></data>
+  <data name="FooterTitle.Text" xml:space="preserve"><value>SteelSeries Sonar</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>SteelSeries GG を開く</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>SteelSeries GG を開く</value></data>
+  <data name="SyncedTooltip" xml:space="preserve"><value>出力は同期されています。クリックするとチャンネルごとにデバイスを選べます。</value></data>
+  <data name="UnsyncedTooltip" xml:space="preserve"><value>すべてのチャンネルを 1 つの出力に同期</value></data>
+  <data name="ChannelMaster" xml:space="preserve"><value>マスター</value></data>
+  <data name="ChannelGame" xml:space="preserve"><value>ゲーム</value></data>
+  <data name="ChannelChat" xml:space="preserve"><value>チャット</value></data>
+  <data name="ChannelMedia" xml:space="preserve"><value>メディア</value></data>
+  <data name="ChannelAux" xml:space="preserve"><value>Aux</value></data>
+  <data name="ChannelMic" xml:space="preserve"><value>マイク</value></data>
+  <data name="ChannelVolumeName" xml:space="preserve"><value>{0} の音量</value></data>
+  <data name="ChannelMuteName" xml:space="preserve"><value>{0} をミュート</value></data>
+  <data name="ChannelOutputName" xml:space="preserve"><value>{0} の出力</value></data>
+  <data name="Mute" xml:space="preserve"><value>ミュート</value></data>
+  <data name="Unmute" xml:space="preserve"><value>ミュート解除</value></data>
+  <data name="UnavailableDevice" xml:space="preserve"><value>使用できないデバイス</value></data>
+  <data name="ErrorUnreachable" xml:space="preserve"><value>Sonar に接続できません。SteelSeries GG は起動していますか?</value></data>
+  <data name="ErrorStreamerMode" xml:space="preserve"><value>Streamer モードにはまだ対応していません。Sonar を Classic モードに切り替えてください。</value></data>
+</root>

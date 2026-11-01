@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="AppDisplayName" xml:space="preserve"><value>Sonar Flyout</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>SteelSeries Sonar 托盘混音器</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>Sonar 混音器</value></data>
+  <data name="TrayTooltip" xml:space="preserve"><value>Sonar 混音器</value></data>
+  <data name="TrayVolume" xml:space="preserve"><value>Sonar: {0}</value></data>
+  <data name="TrayMuted" xml:space="preserve"><value>Sonar: 已静音</value></data>
+  <data name="MenuOpenGG" xml:space="preserve"><value>打开 SteelSeries GG</value></data>
+  <data name="MenuStartWithWindows" xml:space="preserve"><value>随 Windows 启动</value></data>
+  <data name="MenuStartWithWindowsOn" xml:space="preserve"><value>随 Windows 启动，开</value></data>
+  <data name="MenuStartWithWindowsOff" xml:space="preserve"><value>随 Windows 启动，关</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>退出</value></data>
+  <data name="SoundHeader.Text" xml:space="preserve"><value>声音</value></data>
+  <data name="OutputHeader.Text" xml:space="preserve"><value>输出</value></data>
+  <data name="PerChannelHint.Text" xml:space="preserve"><value>按通道</value></data>
+  <data name="SyncOutputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>所有通道使用同一输出</value></data>
+  <data name="Outputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>输出设备</value></data>
+  <data name="MixerHeader.Text" xml:space="preserve"><value>混音器</value></data>
+  <data name="InputHeader.Text" xml:space="preserve"><value>输入</value></data>
+  <data name="Inputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>输入设备</value></data>
+  <data name="FooterTitle.Text" xml:space="preserve"><value>SteelSeries Sonar</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>打开 SteelSeries GG</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>打开 SteelSeries GG</value></data>
+  <data name="SyncedTooltip" xml:space="preserve"><value>输出已同步。单击可为每个通道选择设备。</value></data>
+  <data name="UnsyncedTooltip" xml:space="preserve"><value>将所有通道同步到一个输出</value></data>
+  <data name="ChannelMaster" xml:space="preserve"><value>主音量</value></data>
+  <data name="ChannelGame" xml:space="preserve"><value>游戏</value></data>
+  <data name="ChannelChat" xml:space="preserve"><value>聊天</value></data>
+  <data name="ChannelMedia" xml:space="preserve"><value>媒体</value></data>
+  <data name="ChannelAux" xml:space="preserve"><value>Aux</value></data>
+  <data name="ChannelMic" xml:space="preserve"><value>麦克风</value></data>
+  <data name="ChannelVolumeName" xml:space="preserve"><value>{0}音量</value></data>
+  <data name="ChannelMuteName" xml:space="preserve"><value>{0}静音</value></data>
+  <data name="ChannelOutputName" xml:space="preserve"><value>{0}输出</value></data>
+  <data name="Mute" xml:space="preserve"><value>静音</value></data>
+  <data name="Unmute" xml:space="preserve"><value>取消静音</value></data>
+  <data name="UnavailableDevice" xml:space="preserve"><value>设备不可用</value></data>
+  <data name="ErrorUnreachable" xml:space="preserve"><value>无法连接到 Sonar。SteelSeries GG 是否正在运行？</value></data>
+  <data name="ErrorStreamerMode" xml:space="preserve"><value>尚不支持 Streamer 模式。请将 Sonar 切换到 Classic 模式。</value></data>
+</root>

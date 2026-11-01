@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      # Native AOT's linker setup calls vswhere, which isn't on PATH by default.
+      - name: Put vswhere on PATH
+        run: Add-Content $env:GITHUB_PATH "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+
+      - name: Build MSIX
+        run: dotnet publish SonarFlyout.csproj -c Release -p:GenerateAppxPackageOnBuild=true -p:AppxPackageDir="$PWD\AppPackages\"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SonarFlyout-msix
+          path: AppPackages/**/*.msix
+          if-no-files-found: error

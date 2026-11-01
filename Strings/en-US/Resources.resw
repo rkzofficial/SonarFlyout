@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+
+  <data name="AppDisplayName" xml:space="preserve"><value>Sonar Flyout</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>Tray mixer for SteelSeries Sonar</value></data>
+  <data name="WindowTitle" xml:space="preserve"><value>Sonar mixer</value></data>
+
+  <data name="TrayTooltip" xml:space="preserve"><value>Sonar mixer</value></data>
+  <data name="TrayVolume" xml:space="preserve"><value>Sonar: {0}</value><comment>{0} is the master volume as a percentage, e.g. 50%</comment></data>
+  <data name="TrayMuted" xml:space="preserve"><value>Sonar: muted</value></data>
+
+  <data name="MenuOpenGG" xml:space="preserve"><value>Open SteelSeries GG</value></data>
+  <data name="MenuStartWithWindows" xml:space="preserve"><value>Start with Windows</value></data>
+  <data name="MenuStartWithWindowsOn" xml:space="preserve"><value>Start with Windows, on</value><comment>Screen reader name when the option is enabled</comment></data>
+  <data name="MenuStartWithWindowsOff" xml:space="preserve"><value>Start with Windows, off</value><comment>Screen reader name when the option is disabled</comment></data>
+  <data name="MenuExit" xml:space="preserve"><value>Exit</value></data>
+
+  <data name="SoundHeader.Text" xml:space="preserve"><value>Sound</value></data>
+  <data name="OutputHeader.Text" xml:space="preserve"><value>Output</value></data>
+  <data name="PerChannelHint.Text" xml:space="preserve"><value>Per channel</value><comment>Shown next to Output when each channel has its own device</comment></data>
+  <data name="SyncOutputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Same output for all channels</value></data>
+  <data name="Outputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Output device</value></data>
+  <data name="MixerHeader.Text" xml:space="preserve"><value>Mixer</value></data>
+  <data name="InputHeader.Text" xml:space="preserve"><value>Input</value></data>
+  <data name="Inputs.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Input device</value></data>
+  <data name="FooterTitle.Text" xml:space="preserve"><value>SteelSeries Sonar</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve"><value>Open SteelSeries GG</value></data>
+  <data name="OpenGG.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Open SteelSeries GG</value></data>
+
+  <data name="SyncedTooltip" xml:space="preserve"><value>Outputs synced. Click to pick a device per channel.</value></data>
+  <data name="UnsyncedTooltip" xml:space="preserve"><value>Sync all channels to one output</value></data>
+
+  <data name="ChannelMaster" xml:space="preserve"><value>Master</value></data>
+  <data name="ChannelGame" xml:space="preserve"><value>Game</value></data>
+  <data name="ChannelChat" xml:space="preserve"><value>Chat</value></data>
+  <data name="ChannelMedia" xml:space="preserve"><value>Media</value></data>
+  <data name="ChannelAux" xml:space="preserve"><value>Aux</value></data>
+  <data name="ChannelMic" xml:space="preserve"><value>Mic</value></data>
+  <data name="ChannelVolumeName" xml:space="preserve"><value>{0} volume</value><comment>Screen reader name; {0} is a channel such as Game</comment></data>
+  <data name="ChannelMuteName" xml:space="preserve"><value>{0} mute</value><comment>Screen reader name; {0} is a channel such as Game</comment></data>
+  <data name="ChannelOutputName" xml:space="preserve"><value>{0} output</value><comment>Screen reader name; {0} is a channel such as Game</comment></data>
+  <data name="Mute" xml:space="preserve"><value>Mute</value></data>
+  <data name="Unmute" xml:space="preserve"><value>Unmute</value></data>
+  <data name="UnavailableDevice" xml:space="preserve"><value>Unavailable device</value></data>
+
+  <data name="ErrorUnreachable" xml:space="preserve"><value>Can't reach Sonar. Is SteelSeries GG running?</value></data>
+  <data name="ErrorStreamerMode" xml:space="preserve"><value>Streamer mode isn't supported yet. Switch Sonar to Classic mode.</value></data>
+</root>
