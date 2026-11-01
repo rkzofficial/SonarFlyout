@@ -17,7 +17,6 @@ namespace SonarFlyout;
 // click-through 1x1 window provides one.
 sealed class TrayMenu
 {
-    // Matches the startupTask TaskId in Package.appxmanifest.
     const string StartupTaskId = "SonarFlyoutStartup";
 
     readonly Window _host = new() { Content = new Grid { FlowDirection = Strings.FlowDirection } };

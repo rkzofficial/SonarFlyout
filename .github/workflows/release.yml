@@ -50,7 +50,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.value }}
         run: |
           if (-not $env:PACKAGE_NAME -or -not $env:PUBLISHER -or -not $env:PUBLISHER_DISPLAY_NAME) {
-            throw 'Set the STORE_PACKAGE_NAME, STORE_PUBLISHER and STORE_PUBLISHER_DISPLAY_NAME variables (see docs/RELEASING.md).'
+            throw 'Set the STORE_PACKAGE_NAME, STORE_PUBLISHER and STORE_PUBLISHER_DISPLAY_NAME environment variables.'
           }
           $path = (Resolve-Path Package.appxmanifest).Path
           $manifest = [xml](Get-Content $path -Raw)

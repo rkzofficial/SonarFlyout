@@ -13,7 +13,6 @@ static class Motion
 
     static bool Enabled => s_settings.AnimationsEnabled;
 
-    // Fluent's "decelerate" curve, used by Windows' own flyouts.
     static CompositionEasingFunction Decelerate(Compositor compositor) =>
         compositor.CreateCubicBezierEasingFunction(new Vector2(0.1f, 0.9f), new Vector2(0.2f, 1f));
 
