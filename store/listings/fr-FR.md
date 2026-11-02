@@ -28,6 +28,7 @@ Faites défiler sur l’icône pour changer le volume principal.
 - Choisissez le micro utilisé par Sonar
 - L’icône indique le volume principal de Sonar
 - Faites défiler sur l’icône pour changer le volume principal
+- Vous avertit quand Windows n’utilise pas Sonar et corrige cela en un clic
 - Thème clair et sombre, 13 langues, lancement facultatif avec Windows
 
 ## Keywords

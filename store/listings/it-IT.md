@@ -28,6 +28,7 @@ Scorri sull’icona per cambiare il volume master.
 - Scegli il microfono usato da Sonar
 - L’icona mostra il volume master di Sonar
 - Scorri sull’icona per cambiare il volume master
+- Avvisa quando Windows non usa Sonar e lo corregge con un clic
 - Tema chiaro e scuro, 13 lingue, avvio facoltativo con Windows
 
 ## Keywords

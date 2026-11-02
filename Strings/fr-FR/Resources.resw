@@ -43,4 +43,10 @@
   <data name="UnavailableDevice" xml:space="preserve"><value>Périphérique indisponible</value></data>
   <data name="ErrorUnreachable" xml:space="preserve"><value>Impossible de joindre Sonar. SteelSeries GG est-il lancé ?</value></data>
   <data name="ErrorStreamerMode" xml:space="preserve"><value>Le mode Streamer n’est pas encore pris en charge. Passez Sonar en mode Classic.</value></data>
+  <data name="DefaultDevicesFix" xml:space="preserve"><value>Utiliser Sonar</value></data>
+  <data name="DefaultDevicesSound" xml:space="preserve"><value>Le son n'utilise pas Sonar</value></data>
+  <data name="DefaultDevicesMic" xml:space="preserve"><value>Le micro n'utilise pas Sonar</value></data>
+  <data name="DefaultDevicesBoth" xml:space="preserve"><value>Windows n'utilise pas Sonar</value></data>
+  <data name="DefaultDevicesFailed" xml:space="preserve"><value>Impossible de basculer. Vérifiez les périphériques Sonar dans les paramètres de son.</value></data>
+  <data name="DefaultDevicesFixed" xml:space="preserve"><value>Sonar est maintenant utilisé</value></data>
 </root>

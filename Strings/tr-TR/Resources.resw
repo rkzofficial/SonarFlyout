@@ -43,4 +43,10 @@
   <data name="UnavailableDevice" xml:space="preserve"><value>Kullanılamayan aygıt</value></data>
   <data name="ErrorUnreachable" xml:space="preserve"><value>Sonar'a ulaşılamıyor. SteelSeries GG çalışıyor mu?</value></data>
   <data name="ErrorStreamerMode" xml:space="preserve"><value>Streamer modu henüz desteklenmiyor. Sonar'ı Classic moduna geçirin.</value></data>
+  <data name="DefaultDevicesFix" xml:space="preserve"><value>Sonar'ı kullan</value></data>
+  <data name="DefaultDevicesSound" xml:space="preserve"><value>Ses Sonar'ı kullanmıyor</value></data>
+  <data name="DefaultDevicesMic" xml:space="preserve"><value>Mikrofon Sonar'ı kullanmıyor</value></data>
+  <data name="DefaultDevicesBoth" xml:space="preserve"><value>Windows Sonar'ı kullanmıyor</value></data>
+  <data name="DefaultDevicesFailed" xml:space="preserve"><value>Geçiş yapılamadı. Ses ayarlarında Sonar cihazlarını kontrol edin.</value></data>
+  <data name="DefaultDevicesFixed" xml:space="preserve"><value>Artık Sonar kullanılıyor</value></data>
 </root>

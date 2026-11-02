@@ -28,6 +28,7 @@ Mausrad über dem Tray-Symbol ändert die Master-Lautstärke.
 - Das von Sonar verwendete Mikrofon auswählen
 - Das Tray-Symbol zeigt die Master-Lautstärke von Sonar
 - Mausrad über dem Tray-Symbol ändert die Master-Lautstärke
+- Warnt, wenn Windows Sonar nicht verwendet, und behebt es mit einem Klick
 - Helles und dunkles Design, 13 Sprachen, optionaler Start mit Windows
 
 ## Keywords

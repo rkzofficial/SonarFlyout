@@ -43,4 +43,10 @@
   <data name="UnavailableDevice" xml:space="preserve"><value>Nicht verfügbares Gerät</value></data>
   <data name="ErrorUnreachable" xml:space="preserve"><value>Sonar ist nicht erreichbar. Läuft SteelSeries GG?</value></data>
   <data name="ErrorStreamerMode" xml:space="preserve"><value>Der Streamer-Modus wird noch nicht unterstützt. Stelle Sonar auf den Classic-Modus um.</value></data>
+  <data name="DefaultDevicesFix" xml:space="preserve"><value>Sonar verwenden</value></data>
+  <data name="DefaultDevicesSound" xml:space="preserve"><value>Ton nutzt Sonar nicht</value></data>
+  <data name="DefaultDevicesMic" xml:space="preserve"><value>Mikrofon nutzt Sonar nicht</value></data>
+  <data name="DefaultDevicesBoth" xml:space="preserve"><value>Windows nutzt Sonar nicht</value></data>
+  <data name="DefaultDevicesFailed" xml:space="preserve"><value>Umschalten fehlgeschlagen. Prüfen Sie die Sonar-Geräte in den Soundeinstellungen.</value></data>
+  <data name="DefaultDevicesFixed" xml:space="preserve"><value>Sonar wird jetzt verwendet</value></data>
 </root>

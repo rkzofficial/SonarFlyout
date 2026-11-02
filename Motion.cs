@@ -1,6 +1,7 @@
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Hosting;
+using Microsoft.UI.Xaml.Media.Animation;
 using System.Numerics;
 using Windows.UI.ViewManagement;
 
@@ -76,6 +77,42 @@ static class Motion
         rotate.InsertKeyFrame(1, degrees, Decelerate(visual.Compositor));
         rotate.Duration = s_short;
         visual.StartAnimation("RotationAngleInDegrees", rotate);
+    }
+
+    // Height can only be animated on the UI thread, so a dependent animation; the flyout window follows each layout pass.
+    public static async Task CollapseAsync(FrameworkElement element, Action collapsed)
+    {
+        if (!Enabled)
+        {
+            collapsed();
+            return;
+        }
+        var visual = ElementCompositionPreview.GetElementVisual(element);
+        var fade = visual.Compositor.CreateScalarKeyFrameAnimation();
+        fade.InsertKeyFrame(1, 0);
+        fade.Duration = s_short;
+        visual.StartAnimation("Opacity", fade);
+
+        var shrink = new DoubleAnimation
+        {
+            From = element.ActualHeight,
+            To = 0,
+            Duration = TimeSpan.FromMilliseconds(200),
+            EnableDependentAnimation = true,
+            EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut },
+        };
+        Storyboard.SetTarget(shrink, element);
+        Storyboard.SetTargetProperty(shrink, "Height");
+        var storyboard = new Storyboard { Children = { shrink } };
+        var done = new TaskCompletionSource();
+        storyboard.Completed += (_, _) => done.TrySetResult();
+        storyboard.Begin();
+        await done.Task;
+
+        collapsed();
+        storyboard.Stop();
+        visual.StopAnimation("Opacity");
+        visual.Opacity = 1;
     }
 
     public static void FadeInWhenShown(UIElement element)

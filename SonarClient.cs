@@ -16,6 +16,10 @@ public sealed class SonarState
     public required List<Device> Inputs { get; init; }
     public required HashSet<string> EnabledChannels { get; init; }
     public required bool OutputsLinked { get; init; }
+    public required HashSet<string> SonarOutputs { get; init; }
+    public string? GameOutput { get; init; }
+    public string? ChatOutput { get; init; }
+    public string? SonarMic { get; init; }
 }
 
 public sealed class SonarClient
@@ -80,6 +84,12 @@ public sealed class SonarClient
         var physical = devicesJson.RootElement.EnumerateArray()
             .Where(d => !d.GetProperty("isVad").GetBoolean() && d.GetProperty("state").GetString() == "active")
             .ToList();
+        var virtualDevices = devicesJson.RootElement.EnumerateArray()
+            .Where(d => d.GetProperty("isVad").GetBoolean() && d.GetProperty("state").GetString() == "active")
+            .Select(d => (Id: d.GetProperty("id").GetString()!, Flow: d.GetProperty("dataFlow").GetString(), Role: d.GetProperty("role").GetString()))
+            .ToList();
+        // Sonar also exposes its microphone as a render endpoint (the monitor), which isn't a playback target.
+        var sonarOutputs = virtualDevices.Where(d => d.Flow == "render" && d.Role != "chatCapture").ToList();
 
         return new SonarState
         {
@@ -95,6 +105,10 @@ public sealed class SonarClient
                 .Select(d => d.GetProperty("role").GetString()!)
                 .ToHashSet(),
             OutputsLinked = await linked == "true",
+            SonarOutputs = sonarOutputs.Select(d => d.Id).ToHashSet(),
+            GameOutput = sonarOutputs.FirstOrDefault(d => d.Role == "game").Id,
+            ChatOutput = sonarOutputs.FirstOrDefault(d => d.Role == "chatRender").Id,
+            SonarMic = virtualDevices.FirstOrDefault(d => d.Flow == "capture" && d.Role == "chatCapture").Id,
         };
     }
 
