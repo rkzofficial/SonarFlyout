@@ -38,6 +38,7 @@ public sealed partial class FlyoutWindow : Window
     readonly Dictionary<string, double> _pendingVolumes = [];
     readonly HashSet<string> _sendingVolumes = [];
     SonarState? _state;
+    int _stateGeneration;
     bool _confirmingFix;
     nint _monitor;
     string _mainChannel = "game";
@@ -291,6 +292,7 @@ public sealed partial class FlyoutWindow : Window
 
     async Task LoadAsync()
     {
+        ++_stateGeneration;
         var state = await _sonar.GetStateAsync();
         if (state.Mode != "classic")
             throw new InvalidOperationException(Strings.Get("ErrorStreamerMode"));
@@ -336,8 +338,19 @@ public sealed partial class FlyoutWindow : Window
 
     void OnDefaultDeviceChanged()
     {
-        if (AppWindow.IsVisible && _state is not null && !_confirmingFix)
-            Run(LoadAsync);
+        if (AppWindow.IsVisible && _state is not null && !Error.IsOpen && !_confirmingFix)
+            Run(RefreshDefaultDevicesAsync);
+    }
+
+    // Only the warning is refreshed, so a slider being dragged isn't reset to Sonar's older volume.
+    async Task RefreshDefaultDevicesAsync()
+    {
+        int generation = ++_stateGeneration;
+        var state = await _sonar.GetStateAsync();
+        if (generation != _stateGeneration || _confirmingFix || Error.IsOpen)
+            return;
+        _state = state;
+        ShowDefaultDevices();
     }
 
     async void UseSonarDevices()
@@ -370,7 +383,7 @@ public sealed partial class FlyoutWindow : Window
         DefaultDevicesBar.Severity = InfoBarSeverity.Warning;
         DefaultDevicesBar.ActionButton.Visibility = Visibility.Visible;
         _confirmingFix = false;
-        await RunAsync(LoadAsync);
+        await RunAsync(RefreshDefaultDevicesAsync);
     }
 
     // Keeps existing items when the device set is unchanged, so selection moves with ListView's own
