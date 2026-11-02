@@ -28,6 +28,7 @@ Ana ses düzeyini değiştirmek için simgenin üzerinde kaydırın.
 - Sonar'ın kullandığı mikrofonu seçin
 - Simge, Sonar'ın ana ses düzeyini gösterir
 - Ana ses düzeyini değiştirmek için simgenin üzerinde kaydırın
+- Windows Sonar'ı kullanmadığında uyarır ve tek tıkla düzeltir
 - Açık ve koyu tema, 13 dil, isteğe bağlı Windows ile başlatma
 
 ## Keywords

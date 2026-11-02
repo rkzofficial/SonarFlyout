@@ -4,9 +4,11 @@ using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml.Hosting;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation;
+using Microsoft.UI.Xaml.Automation.Peers;
 using Microsoft.UI.Xaml.Controls;
 using System.Runtime.InteropServices;
 using Windows.Graphics;
+using Windows.Media.Devices;
 using Windows.System;
 using static SonarFlyout.Native;
 
@@ -35,6 +37,8 @@ public sealed partial class FlyoutWindow : Window
     readonly Dictionary<string, ChannelRow> _rows = [];
     readonly Dictionary<string, double> _pendingVolumes = [];
     readonly HashSet<string> _sendingVolumes = [];
+    SonarState? _state;
+    bool _confirmingFix;
     nint _monitor;
     string _mainChannel = "game";
     long _hiddenAt;
@@ -111,6 +115,12 @@ public sealed partial class FlyoutWindow : Window
             if (!_updating && Inputs.SelectedItem is ListViewItem { Tag: string id })
                 Run(() => _sonar.SetOutputAsync(MicRoute, id));
         };
+        // InfoBar's 96px minimum button width is what pushes the button below even a short message in a 360px flyout.
+        var useSonar = new Button { Content = Strings.Get("DefaultDevicesFix"), MinWidth = 0 };
+        useSonar.Click += (_, _) => UseSonarDevices();
+        DefaultDevicesBar.ActionButton = useSonar;
+        MediaDevice.DefaultAudioRenderDeviceChanged += (_, _) => DispatcherQueue.TryEnqueue(OnDefaultDeviceChanged);
+        MediaDevice.DefaultAudioCaptureDeviceChanged += (_, _) => DispatcherQueue.TryEnqueue(OnDefaultDeviceChanged);
         Motion.FadeInWhenShown(PerChannelHint);
         Run(WarmUpAsync);
         OpenGG.Click += (_, _) =>
@@ -313,6 +323,54 @@ public sealed partial class FlyoutWindow : Window
         FillDevices(Outputs, state.Outputs, mainOutput);
         FillDevices(Inputs, state.Inputs, state.Routes.GetValueOrDefault(MicRoute));
         _updating = false;
+        _state = state;
+        ShowDefaultDevices();
+    }
+
+    void ShowDefaultDevices()
+    {
+        var (sound, mic) = DefaultDevices.AreSonar(_state!);
+        DefaultDevicesBar.Message = Strings.Get(sound ? "DefaultDevicesMic" : mic ? "DefaultDevicesSound" : "DefaultDevicesBoth");
+        DefaultDevicesBar.IsOpen = !(sound && mic);
+    }
+
+    void OnDefaultDeviceChanged()
+    {
+        if (AppWindow.IsVisible && _state is not null && !Error.IsOpen && !_confirmingFix)
+            ShowDefaultDevices();
+    }
+
+    async void UseSonarDevices()
+    {
+        if (_confirmingFix)
+            return;
+        _confirmingFix = true;
+        try
+        {
+            _state = await _sonar.GetStateAsync();
+            DefaultDevices.UseSonar(_state);
+        }
+        catch
+        {
+            DefaultDevicesBar.Message = Strings.Get("DefaultDevicesFailed");
+            _confirmingFix = false;
+            return;
+        }
+
+        DefaultDevicesBar.Severity = InfoBarSeverity.Success;
+        DefaultDevicesBar.Message = Strings.Get("DefaultDevicesFixed");
+        if (DefaultDevicesBar.ActionButton.FocusState != FocusState.Unfocused)
+            (Outputs.Visibility == Visibility.Visible ? Outputs : Inputs).Focus(FocusState.Programmatic);
+        DefaultDevicesBar.ActionButton.Visibility = Visibility.Collapsed;
+        FrameworkElementAutomationPeer.CreatePeerForElement(DefaultDevicesBar).RaiseNotificationEvent(
+            AutomationNotificationKind.ActionCompleted, AutomationNotificationProcessing.ImportantMostRecent,
+            DefaultDevicesBar.Message, "DefaultDevicesFixed");
+        await Task.Delay(1200);
+        await Motion.CollapseAsync(DefaultDevicesHost, () => DefaultDevicesBar.IsOpen = false);
+        DefaultDevicesBar.Severity = InfoBarSeverity.Warning;
+        DefaultDevicesBar.ActionButton.Visibility = Visibility.Visible;
+        _confirmingFix = false;
+        ShowDefaultDevices();
     }
 
     // Keeps existing items when the device set is unchanged, so selection moves with ListView's own
@@ -365,7 +423,7 @@ public sealed partial class FlyoutWindow : Window
                 await _sonar.SetVolumeAsync(channel, next);
                 await RefreshOtherVolumesAsync(channel);
             }
-            Error.IsOpen = false;
+            ClearError();
         }
         catch (Exception e)
         {
@@ -402,7 +460,7 @@ public sealed partial class FlyoutWindow : Window
         try
         {
             await action();
-            Error.IsOpen = false;
+            ClearError();
         }
         catch (Exception e)
         {
@@ -410,9 +468,19 @@ public sealed partial class FlyoutWindow : Window
         }
     }
 
+    void ClearError()
+    {
+        if (!Error.IsOpen)
+            return;
+        Error.IsOpen = false;
+        if (_state is not null && !_confirmingFix)
+            ShowDefaultDevices();
+    }
+
     void ShowError(Exception e)
     {
         _updating = false;
+        DefaultDevicesBar.IsOpen = false;
         Error.Message = e is InvalidOperationException ? e.Message : Strings.Get("ErrorUnreachable");
         Error.IsOpen = true;
     }

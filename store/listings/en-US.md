@@ -28,6 +28,7 @@ Scroll over the tray icon to change master volume.
 - Choose the microphone Sonar uses
 - Tray icon shows Sonar's master volume
 - Scroll over the tray icon to change master volume
+- Warns when Windows isn't using Sonar and fixes it in one click
 - Light and dark theme, 13 languages, optional start with Windows
 
 ## Keywords

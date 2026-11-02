@@ -28,6 +28,7 @@ Sonar Flyout은 독립 프로젝트이며 SteelSeries와 제휴하거나 SteelSe
 - Sonar가 사용할 마이크 선택
 - 트레이 아이콘에 Sonar 마스터 볼륨 표시
 - 트레이 아이콘 위에서 스크롤하여 마스터 볼륨 조절
+- Windows에서 Sonar를 사용하지 않으면 알려 주고 클릭 한 번으로 해결
 - 밝은 테마와 어두운 테마, 13개 언어, Windows 시작 시 실행(선택)
 
 ## Keywords

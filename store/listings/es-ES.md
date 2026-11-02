@@ -28,6 +28,7 @@ Desplázate sobre el icono para cambiar el volumen maestro.
 - Elige el micrófono que usa Sonar
 - El icono muestra el volumen maestro de Sonar
 - Desplázate sobre el icono para cambiar el volumen maestro
+- Avisa cuando Windows no usa Sonar y lo soluciona con un clic
 - Tema claro y oscuro, 13 idiomas, inicio opcional con Windows
 
 ## Keywords

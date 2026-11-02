@@ -13,6 +13,7 @@ A tray mixer for SteelSeries Sonar on Windows 11. Click the icon to change Sonar
 - Switch every channel to another output device, or give each channel its own
 - Pick the microphone Sonar uses
 - The tray icon shows the master volume; scroll over it to change it
+- Warns when Windows isn't using Sonar's devices, with a button to switch to them
 - Light and dark theme, 13 languages, optional start with Windows
 
 ## Requirements

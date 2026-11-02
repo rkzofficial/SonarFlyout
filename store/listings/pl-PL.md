@@ -28,6 +28,7 @@ Przewiń nad ikoną, aby zmienić główną głośność.
 - Wybór mikrofonu używanego przez Sonar
 - Ikona pokazuje główną głośność Sonar
 - Przewiń nad ikoną, aby zmienić główną głośność
+- Ostrzeżenie, gdy Windows nie używa Sonar, i naprawa jednym kliknięciem
 - Jasny i ciemny motyw, 13 języków, opcjonalne uruchamianie z Windows
 
 ## Keywords

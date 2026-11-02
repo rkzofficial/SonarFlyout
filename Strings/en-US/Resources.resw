@@ -49,4 +49,10 @@
 
   <data name="ErrorUnreachable" xml:space="preserve"><value>Can't reach Sonar. Is SteelSeries GG running?</value></data>
   <data name="ErrorStreamerMode" xml:space="preserve"><value>Streamer mode isn't supported yet. Switch Sonar to Classic mode.</value></data>
+  <data name="DefaultDevicesFix" xml:space="preserve"><value>Use Sonar</value></data>
+  <data name="DefaultDevicesSound" xml:space="preserve"><value>Sound isn't using Sonar</value></data>
+  <data name="DefaultDevicesMic" xml:space="preserve"><value>Mic isn't using Sonar</value></data>
+  <data name="DefaultDevicesBoth" xml:space="preserve"><value>Windows isn't using Sonar</value></data>
+  <data name="DefaultDevicesFailed" xml:space="preserve"><value>Couldn't switch. Check Sonar's devices in Sound settings.</value></data>
+  <data name="DefaultDevicesFixed" xml:space="preserve"><value>Now using Sonar</value></data>
 </root>

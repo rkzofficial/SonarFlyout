@@ -18,6 +18,9 @@
 
         <StackPanel Padding="12,12,12,12">
             <InfoBar x:Name="Error" Severity="Warning" IsClosable="False" Margin="0,0,0,8" />
+            <Grid x:Name="DefaultDevicesHost">
+                <InfoBar x:Name="DefaultDevicesBar" Severity="Warning" IsClosable="False" Margin="0,0,0,8" />
+            </Grid>
 
             <TextBlock x:Uid="SoundHeader" Style="{StaticResource SectionHeaderStyle}" Margin="4,0,0,4" />
             <ContentPresenter x:Name="MasterHost" />

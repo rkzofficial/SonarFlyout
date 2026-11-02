@@ -43,4 +43,10 @@
   <data name="UnavailableDevice" xml:space="preserve"><value>设备不可用</value></data>
   <data name="ErrorUnreachable" xml:space="preserve"><value>无法连接到 Sonar。SteelSeries GG 是否正在运行？</value></data>
   <data name="ErrorStreamerMode" xml:space="preserve"><value>尚不支持 Streamer 模式。请将 Sonar 切换到 Classic 模式。</value></data>
+  <data name="DefaultDevicesFix" xml:space="preserve"><value>使用 Sonar</value></data>
+  <data name="DefaultDevicesSound" xml:space="preserve"><value>声音未使用 Sonar</value></data>
+  <data name="DefaultDevicesMic" xml:space="preserve"><value>麦克风未使用 Sonar</value></data>
+  <data name="DefaultDevicesBoth" xml:space="preserve"><value>Windows 未使用 Sonar</value></data>
+  <data name="DefaultDevicesFailed" xml:space="preserve"><value>无法切换。请在声音设置中检查 Sonar 设备。</value></data>
+  <data name="DefaultDevicesFixed" xml:space="preserve"><value>现已使用 Sonar</value></data>
 </root>
