@@ -336,25 +336,27 @@ public sealed partial class FlyoutWindow : Window
 
     void OnDefaultDeviceChanged()
     {
-        if (AppWindow.IsVisible && _state is not null && !Error.IsOpen && !_confirmingFix)
-            ShowDefaultDevices();
+        if (AppWindow.IsVisible && _state is not null && !_confirmingFix)
+            Run(LoadAsync);
     }
 
     async void UseSonarDevices()
     {
         if (_confirmingFix)
             return;
+        _confirmingFix = true;
         try
         {
-            DefaultDevices.UseSonar(_state!);
+            _state = await _sonar.GetStateAsync();
+            DefaultDevices.UseSonar(_state);
         }
         catch
         {
             DefaultDevicesBar.Message = Strings.Get("DefaultDevicesFailed");
+            _confirmingFix = false;
             return;
         }
 
-        _confirmingFix = true;
         DefaultDevicesBar.Severity = InfoBarSeverity.Success;
         DefaultDevicesBar.Message = Strings.Get("DefaultDevicesFixed");
         if (DefaultDevicesBar.ActionButton.FocusState != FocusState.Unfocused)
@@ -368,7 +370,7 @@ public sealed partial class FlyoutWindow : Window
         DefaultDevicesBar.Severity = InfoBarSeverity.Warning;
         DefaultDevicesBar.ActionButton.Visibility = Visibility.Visible;
         _confirmingFix = false;
-        ShowDefaultDevices();
+        await RunAsync(LoadAsync);
     }
 
     // Keeps existing items when the device set is unchanged, so selection moves with ListView's own
