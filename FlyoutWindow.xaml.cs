@@ -38,7 +38,6 @@ public sealed partial class FlyoutWindow : Window
     readonly Dictionary<string, double> _pendingVolumes = [];
     readonly HashSet<string> _sendingVolumes = [];
     SonarState? _state;
-    int _stateGeneration;
     bool _confirmingFix;
     nint _monitor;
     string _mainChannel = "game";
@@ -292,7 +291,6 @@ public sealed partial class FlyoutWindow : Window
 
     async Task LoadAsync()
     {
-        ++_stateGeneration;
         var state = await _sonar.GetStateAsync();
         if (state.Mode != "classic")
             throw new InvalidOperationException(Strings.Get("ErrorStreamerMode"));
@@ -339,18 +337,7 @@ public sealed partial class FlyoutWindow : Window
     void OnDefaultDeviceChanged()
     {
         if (AppWindow.IsVisible && _state is not null && !Error.IsOpen && !_confirmingFix)
-            Run(RefreshDefaultDevicesAsync);
-    }
-
-    // Only the warning is refreshed, so a slider being dragged isn't reset to Sonar's older volume.
-    async Task RefreshDefaultDevicesAsync()
-    {
-        int generation = ++_stateGeneration;
-        var state = await _sonar.GetStateAsync();
-        if (generation != _stateGeneration || _confirmingFix || Error.IsOpen)
-            return;
-        _state = state;
-        ShowDefaultDevices();
+            ShowDefaultDevices();
     }
 
     async void UseSonarDevices()
@@ -383,7 +370,7 @@ public sealed partial class FlyoutWindow : Window
         DefaultDevicesBar.Severity = InfoBarSeverity.Warning;
         DefaultDevicesBar.ActionButton.Visibility = Visibility.Visible;
         _confirmingFix = false;
-        await RunAsync(RefreshDefaultDevicesAsync);
+        ShowDefaultDevices();
     }
 
     // Keeps existing items when the device set is unchanged, so selection moves with ListView's own
@@ -436,7 +423,7 @@ public sealed partial class FlyoutWindow : Window
                 await _sonar.SetVolumeAsync(channel, next);
                 await RefreshOtherVolumesAsync(channel);
             }
-            Error.IsOpen = false;
+            ClearError();
         }
         catch (Exception e)
         {
@@ -473,12 +460,21 @@ public sealed partial class FlyoutWindow : Window
         try
         {
             await action();
-            Error.IsOpen = false;
+            ClearError();
         }
         catch (Exception e)
         {
             ShowError(e);
         }
+    }
+
+    void ClearError()
+    {
+        if (!Error.IsOpen)
+            return;
+        Error.IsOpen = false;
+        if (_state is not null && !_confirmingFix)
+            ShowDefaultDevices();
     }
 
     void ShowError(Exception e)
