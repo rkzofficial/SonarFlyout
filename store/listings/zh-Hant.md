@@ -18,7 +18,7 @@ Sonar Flyout 只與你電腦上的 SteelSeries GG 通訊，不會收集任何資
 Sonar Flyout 是獨立專案，與 SteelSeries 無關，也未獲得 SteelSeries 的認可或贊助。SteelSeries、SteelSeries GG 和 SteelSeries Sonar 是 SteelSeries ApS 的商標。
 
 ## What's new in this version
-在系統匣圖示上捲動滑鼠滾輪即可調整主音量。
+Windows 未使用 Sonar 時發出提醒，一鍵即可修正。
 
 ## Product features
 - 從工作列調整主音量、遊戲、聊天、媒體、Aux 和麥克風音量

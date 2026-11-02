@@ -18,7 +18,7 @@ Sonar Flyout взаимодействует только с SteelSeries GG на 
 Sonar Flyout — независимый проект, не связанный с SteelSeries, не одобренный и не спонсируемый ею. SteelSeries, SteelSeries GG и SteelSeries Sonar являются товарными знаками SteelSeries ApS.
 
 ## What's new in this version
-Прокрутка над значком меняет общую громкость.
+Предупреждение, если Windows не использует Sonar, и исправление одним кликом.
 
 ## Product features
 - Громкость общего канала, игры, чата, медиа, Aux и микрофона прямо с панели задач

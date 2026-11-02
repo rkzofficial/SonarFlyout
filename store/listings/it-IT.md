@@ -18,7 +18,7 @@ Richiede SteelSeries GG con Sonar attivo in modalità Classic.
 Sonar Flyout è un progetto indipendente e non è affiliato, approvato o sponsorizzato da SteelSeries. SteelSeries, SteelSeries GG e SteelSeries Sonar sono marchi di SteelSeries ApS.
 
 ## What's new in this version
-Scorri sull’icona per cambiare il volume master.
+Avvisa quando Windows non usa Sonar e lo corregge con un clic.
 
 ## Product features
 - Regola i volumi Master, Gioco, Chat, Media, Aux e Microfono dalla barra delle applicazioni

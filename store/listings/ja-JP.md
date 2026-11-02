@@ -18,7 +18,7 @@ Sonar を Classic モードで有効にした SteelSeries GG が必要です。
 Sonar Flyout は独立したプロジェクトであり、SteelSeries とは提携しておらず、SteelSeries による承認や後援も受けていません。SteelSeries、SteelSeries GG、SteelSeries Sonar は SteelSeries ApS の商標です。
 
 ## What's new in this version
-トレイ アイコン上でスクロールしてマスター音量を変更。
+Windows で Sonar が使われていないときに警告し、ワンクリックで修正。
 
 ## Product features
 - マスター、ゲーム、チャット、メディア、Aux、マイクの音量をタスク バーから調整

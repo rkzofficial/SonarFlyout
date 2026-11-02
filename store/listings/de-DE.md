@@ -18,7 +18,7 @@ Erfordert SteelSeries GG mit aktiviertem Sonar im Classic-Modus.
 Sonar Flyout ist ein unabhängiges Projekt und steht in keiner Verbindung zu SteelSeries und wird von SteelSeries weder unterstützt noch gesponsert. SteelSeries, SteelSeries GG und SteelSeries Sonar sind Marken der SteelSeries ApS.
 
 ## What's new in this version
-Mausrad über dem Tray-Symbol ändert die Master-Lautstärke.
+Warnt, wenn Windows Sonar nicht verwendet, und behebt es mit einem Klick.
 
 ## Product features
 - Lautstärke für Master, Spiel, Chat, Medien, Aux und Mikrofon direkt in der Taskleiste
