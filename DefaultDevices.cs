@@ -29,9 +29,11 @@ static class DefaultDevices
     const int Console = 0, Multimedia = 1, Communications = 2;
     static readonly Guid s_policyConfigClient = new("870af99c-171d-4f9e-af0d-e63df40c2bc9");
 
+    static readonly AudioDeviceRole[] s_roles = [AudioDeviceRole.Default, AudioDeviceRole.Communications];
+
     public static (bool Sound, bool Mic) AreSonar(SonarState state) => (
-        IsOneOf(MediaDevice.GetDefaultAudioRenderId(AudioDeviceRole.Default), state.SonarOutputs),
-        state.SonarMic is null || IsOneOf(MediaDevice.GetDefaultAudioCaptureId(AudioDeviceRole.Default), [state.SonarMic]));
+        s_roles.All(role => IsOneOf(MediaDevice.GetDefaultAudioRenderId(role), state.SonarOutputs)),
+        state.SonarMic is null || s_roles.All(role => IsOneOf(MediaDevice.GetDefaultAudioCaptureId(role), [state.SonarMic])));
 
     // MediaDevice returns device interface paths that embed the endpoint id Sonar reports.
     static bool IsOneOf(string defaultId, IEnumerable<string> endpointIds) =>
